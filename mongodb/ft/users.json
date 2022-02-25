@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "61af6536c3cd99c0ae5dc9bf"
+  },
+  "email": "maggie.simpson@simpsons.com",
+  "title": null,
+  "firstName": "Maggie",
+  "lastName": "Simpson",
+  "primaryTelephone": null,
+  "homeAddress": {
+    "line1": null,
+    "line2": null,
+    "townCity": "Lion",
+    "state": null,
+    "postcode": null,
+    "country": "FRA"
+  },
+  "demographics": {
+    "industry": {
+      "code": "GPV",
+      "active": true,
+      "description": "Govt/public service/NGO"
+    },
+    "position": {
+      "code": "PM",
+      "active": true,
+      "description": "Programme/Project Manager"
+    },
+    "responsibility": {
+      "code": "RET",
+      "active": true,
+      "description": "Retired"
+    }
+  },
+  "jobTitle": null,
+  "source": null,
+  "nonLogin": false,
+  "organisationName": null,
+  "graduationDate": null,
+  "secondaryEmail": null,
+  "createDate": null
+},{
+  "_id": {
+    "$oid": "61b0c9160fac6eef247bb7e2"
+  },
+  "email": "nick.riviera@simpsons.com",
+  "title": "Dr.",
+  "firstName": "Nick",
+  "lastName": "Riviera",
+  "primaryTelephone": null,
+  "homeAddress": {
+    "line1": null,
+    "line2": null,
+    "townCity": null,
+    "state": null,
+    "postcode": "SE1 9HL",
+    "country": "GBR"
+  },
+  "demographics": {
+    "industry": {
+      "code": "ACC",
+      "active": true,
+      "description": "Accountancy & tax advisory"
+    },
+    "position": {
+      "code": "AN",
+      "active": true,
+      "description": "Analyst"
+    },
+    "responsibility": {
+      "code": "FIN",
+      "active": true,
+      "description": "Accounting/finance"
+    }
+  },
+  "jobTitle": null,
+  "source": "simpsons_family",
+  "nonLogin": false,
+  "organisationName": null,
+  "graduationDate": null,
+  "secondaryEmail": null,
+  "createDate": {
+    "$date": "2022-01-01T16:56:50.323Z"
+  }
+}]

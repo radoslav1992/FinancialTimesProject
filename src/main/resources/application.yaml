@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  jetty:
+    threads:
+      acceptors: -1
+spring:
+  data:
+    mongodb:
+      database: ft
+      host: localhost
+      port: 27017
+
+#TODO enable logging for every single HTTP request e.g. 20210-01-01T00:00:00.000 120.0.0.1 GET /licences 200 34

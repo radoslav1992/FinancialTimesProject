@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "61b378850fac6eef247bb830"
+  },
+  "accessLicenceId": {
+    "$oid": "61b34c960fac6eef247bb805"
+  },
+  "userId": {
+    "$oid": "61af6536c3cd99c0ae5dc9bf"
+  },
+  "joinedDate": {
+    "$date": "2015-11-25T16:56:50.323Z"
+  },
+  "seatExpiryDate": null
+}]

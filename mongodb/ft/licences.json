@@ -1,0 +1,107 @@
+[{
+  "_id": {
+    "$oid": "61b34c960fac6eef247bb805"
+  },
+  "creationDateTime": "2015-12-15T09:19:59.706Z",
+  "products": [
+    {
+      "code": "P2",
+      "name": "FT.com Premium"
+    }
+  ],
+  "issueReason": "Contract Signed",
+  "links": [
+    {
+      "rel": "contract",
+      "href": "https://financialtimes--test.cs8.my.salesforce.com/800L00000001pUsIAI",
+      "id": "FT-13991082"
+    }
+  ],
+  "status": "active",
+  "seatLimit": 10,
+  "ipAccessEnabled": true,
+  "ipAccessAddresses": [
+    "130.109.254.171"
+  ],
+  "lastUpdatedDateTime": {
+    "$date": "2016-02-24T17:14:10.705Z"
+  },
+  "seats": [
+    {
+      "$oid": "61b378850fac6eef247bb830"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61b34cf50fac6eef247bb806"
+  },
+  "creationDateTime": {
+    "$date": "2015-09-10T09:50:14.677Z"
+  },
+  "products": [
+    {
+      "code": "P2",
+      "name": "Premium FT.com"
+    }
+  ],
+  "revocationDateTime": {
+    "$date": "2016-01-28T12:02:14.965Z"
+  },
+  "status": "revoked",
+  "seatLimit": 0,
+  "ipAccessEnabled": false,
+  "ipAccessAddresses": [],
+  "lastUpdatedDateTime": {
+    "$date": "2016-01-28T12:02:14.965Z"
+  },
+  "seats": [],
+  "_class": "com.ft.aiminterview.task01.domain.Licence"
+},{
+  "_id": {
+    "$oid": "61b34da40fac6eef247bb809"
+  },
+  "creationDateTime": "2016-01-05T14:15:53.306Z",
+  "products": [
+    {
+      "code": "P1",
+      "name": "FT.com Standard"
+    }
+  ],
+  "issueReason": "Contract Signed",
+  "links": [
+    {
+      "rel": "contract",
+      "href": "http://not-supported.ft.com",
+      "id": "TEST-13"
+    }
+  ],
+  "status": "active",
+  "seatLimit": 137,
+  "ipAccessEnabled": false,
+  "ipAccessAddresses": [],
+  "lastUpdatedDateTime": "2016-06-20T15:02:25.053Z"
+},{
+  "_id": {
+    "$oid": "61b34dc40fac6eef247bb80a"
+  },
+  "creationDateTime": "2016-01-05T14:15:53.306Z",
+  "products": [
+    {
+      "code": "P1",
+      "name": "FT.com Standard"
+    }
+  ],
+  "issueReason": "Contract Signed",
+  "links": [
+    {
+      "rel": "contract",
+      "href": "http://not-supported.ft.com",
+      "id": "TEST-13"
+    }
+  ],
+  "status": "active",
+  "seatLimit": 137,
+  "ipAccessEnabled": false,
+  "ipAccessAddresses": [],
+  "lastUpdatedDateTime": "2016-06-20T15:02:25.053Z"
+}]
