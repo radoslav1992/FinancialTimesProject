@@ -13,14 +13,14 @@ import java.util.Set;
 public class LicenseResponseDto {
 
     @JsonProperty("id")
-    ObjectId accessLicenceId;
-    LocalDateTime creationDateTime;
-    Set<Product> products;
-    LocalDateTime revocationDateTime;
-    LicenceStatus status;
-    Integer seatLimit;
-    boolean ipAccessEnabled;
-    Set<String> ipAccessAddresses;
-    LocalDateTime lastUpdatedDateTime;
+    private ObjectId accessLicenceId;
+    private LocalDateTime creationDateTime;
+    private Set<Product> products;
+    private LocalDateTime revocationDateTime;
+    private LicenceStatus status;
+    private Integer seatLimit;
+    private boolean ipAccessEnabled;
+    private Set<String> ipAccessAddresses;
+    private LocalDateTime lastUpdatedDateTime;
 
 }

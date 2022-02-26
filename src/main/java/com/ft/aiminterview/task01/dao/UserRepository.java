@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface UserRepository extends MongoRepository<User, ObjectId> {
+public interface UserRepository extends MongoRepository<User, String> {
 
     // TODO what shell be done to correct the method signature for this finder?
-    User findUserByEmail(String email);
+    User findByEmail(String email);
 
 }

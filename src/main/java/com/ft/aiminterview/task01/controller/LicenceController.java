@@ -4,19 +4,17 @@ import com.ft.aiminterview.task01.dao.LicenseRepository;
 import com.ft.aiminterview.task01.dao.SeatRepository;
 import com.ft.aiminterview.task01.domain.Licence;
 import com.ft.aiminterview.task01.domain.Seat;
+import com.ft.aiminterview.task01.dtos.LicensePatchStatusDto;
 import com.ft.aiminterview.task01.dtos.LicenseRequestDto;
 import com.ft.aiminterview.task01.dtos.LicenseResponseDto;
+import com.ft.aiminterview.task01.exceptions.EntityNotFoundException;
 import com.ft.aiminterview.task01.service.LicenseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,6 +38,17 @@ public class LicenceController {
     }
     //TODO add http endpoint for amending LicenseStatus
     // do not implement DELETE endpoint
+    @PatchMapping
+    public ResponseEntity<LicenseResponseDto> patchLicense(@RequestBody LicensePatchStatusDto licensePatchStatusDto) {
+        LicenseResponseDto license;
+        try {
+            license = licenseService.patch(licensePatchStatusDto);
+        } catch (EntityNotFoundException ex) {
+            return new ResponseEntity<LicenseResponseDto>(HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok()
+                             .body(license);
+    }
 
     @GetMapping
     public ResponseEntity<List<LicenseResponseDto>> listAllLicenses() {
@@ -55,7 +64,7 @@ public class LicenceController {
 
     //TODO implement validation for `joinedDate` >= Now() and  `seatExpiryDate` >= `joinedDate`,
     // return HTTP 422 'Unprocessable Entity' in validation can't pass
-    @PostMapping("/{licenceId}/allocate-seat")
+    @PostMapping("/allocate-seat/{licenceId}")
     public ResponseEntity<?> allocateSeat(
             @PathVariable("licenceId") ObjectId licenceId,
             @RequestBody Seat seat) {
