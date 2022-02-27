@@ -4,8 +4,11 @@ import com.ft.aiminterview.task01.dao.UserRepository;
 import com.ft.aiminterview.task01.domain.User;
 import com.ft.aiminterview.task01.dtos.UserRequestDto;
 import com.ft.aiminterview.task01.dtos.UserResponseDto;
+import com.ft.aiminterview.task01.exceptions.EntityAlreadyExistsException;
 import com.ft.aiminterview.task01.exceptions.EntityNotFoundException;
+import com.ft.aiminterview.task01.exceptions.IncorrectCountryCodeException;
 import com.ft.aiminterview.task01.mapper.UserMapper;
+import com.ft.aiminterview.task01.utils.UserUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +44,12 @@ public class UserService {
 
     public UserResponseDto create(UserRequestDto userRequestDto) {
         User user = UserMapper.userRequestDtoToUser(userRequestDto);
+
+        if (userRepository.findByEmail(userRequestDto.getEmail()) != null) {
+            throw new EntityAlreadyExistsException();
+        } else if(UserUtils.validateCountryCode(userRequestDto.getHomeAddress().getCountry())) {
+            throw new IncorrectCountryCodeException();
+        }
 
         return UserMapper.userToUserResponseDto(userRepository.save(user));
     }
