@@ -63,13 +63,39 @@ public class UserController {
 
         try {
             userResponseDto = userService.create(userRequestDto);
-        } catch(EntityAlreadyExistsException ex) {
+        } catch (EntityAlreadyExistsException ex) {
             return new ResponseEntity<UserResponseDto>(HttpStatus.CONFLICT);
-        } catch(IncorrectCountryCodeException ex) {
+        } catch (IncorrectCountryCodeException ex) {
             return new ResponseEntity<UserResponseDto>(HttpStatus.BAD_REQUEST);
         }
 
         return ResponseEntity.ok().body(userResponseDto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UserResponseDto> updateUser(@RequestBody UserRequestDto userRequestDto, @PathVariable String id) {
+        UserResponseDto userResponseDto;
+
+        try {
+            userResponseDto = userService.update(userRequestDto, id);
+        } catch (IncorrectCountryCodeException ex) {
+            return new ResponseEntity<UserResponseDto>(HttpStatus.BAD_REQUEST);
+        } catch (EntityNotFoundException ex) {
+            return new ResponseEntity<UserResponseDto>(HttpStatus.NOT_FOUND);
+        }
+
+        return ResponseEntity.ok().body(userResponseDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteUser(@PathVariable String id) {
+        try {
+            userService.delete(id);
+        } catch (EntityNotFoundException ex) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.noContent().build();
     }
 
     //TODO It is very important when you create/update users to validate the country code, it should be in ISO3Letter format

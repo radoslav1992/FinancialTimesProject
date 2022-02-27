@@ -53,4 +53,31 @@ public class UserService {
 
         return UserMapper.userToUserResponseDto(userRepository.save(user));
     }
+
+    public UserResponseDto update(UserRequestDto userRequestDto, String id) {
+
+        if (UserUtils.validateCountryCode(userRequestDto.getHomeAddress().getCountry())) {
+            throw new IncorrectCountryCodeException();
+        }
+
+        User user = userRepository.findById(id).map(userToUpdate -> {
+                    userToUpdate.setEmail(userRequestDto.getEmail());
+                    userToUpdate.setFirstName(userRequestDto.getFirstName());
+                    userToUpdate.setLastName(userRequestDto.getLastName());
+                    userToUpdate.setHomeAddress(userRequestDto.getHomeAddress());
+                    userToUpdate.setTitle(userRequestDto.getTitle());
+                    userToUpdate.setJobTitle(userRequestDto.getJobTitle());
+                    userToUpdate.setNonLogin(userRequestDto.isNonLogin());
+                    userToUpdate.setSource(userRequestDto.getSource());
+                    return userToUpdate;
+                })
+                .orElseThrow(EntityNotFoundException::new);
+
+        return UserMapper.userToUserResponseDto(userRepository.save(user));
+    }
+
+    public void delete(String id) {
+        User userToDelete = userRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        userRepository.delete(userToDelete);
+    }
 }
