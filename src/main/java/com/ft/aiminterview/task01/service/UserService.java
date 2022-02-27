@@ -47,7 +47,7 @@ public class UserService {
 
         if (userRepository.findByEmail(userRequestDto.getEmail()) != null) {
             throw new EntityAlreadyExistsException();
-        } else if(UserUtils.validateCountryCode(userRequestDto.getHomeAddress().getCountry())) {
+        } else if(!UserUtils.validateCountryCode(userRequestDto.getHomeAddress().getCountry())) {
             throw new IncorrectCountryCodeException();
         }
 
